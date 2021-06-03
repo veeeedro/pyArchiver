@@ -18,7 +18,7 @@ def toZip(path_to_zip: str, objects: str):
                     for filename in filenames:
                         ZipArchive.write(os.path.join(foldername, filename), arcname=os.path.join(archive_folder_name, filename))
             elif os.path.isfile(object):
-                toZip.write(object, arcname=os.path.join(path_to_zip, os.path.basename(object)))
+                ZipArchive.write(object, arcname=os.path.basename(object))
     
 
 def unzipping(path_to_zip: str, where_to_extract: str = None):
