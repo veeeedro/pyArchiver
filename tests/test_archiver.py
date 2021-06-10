@@ -1,7 +1,6 @@
 from unittest import TestCase
 import shutil
 import filecmp
-import hashlib
 from os import getcwd, remove
 from os.path import join
 from pyArchiver.pyArchiver import toZip, unzipping
@@ -17,10 +16,8 @@ class TestArchiver(TestCase):
         ])
 
         with open(join(self.path_to_test, 'vbie.zip'), 'rb') as output, open(join(self.path_to_test, 'vbieTest.zip'), 'rb') as input:
-            hashOutputZip = hashlib.sha256(output.read()).digest()
-            hashInputZip = hashlib.sha256(input.read()).digest()
+            self.assertTrue(output.read() == input.read())
 
-            self.assertEqual(hashOutputZip, hashInputZip)
 
         remove(join(self.path_to_test, 'vbieTest.zip'))
 
@@ -32,10 +29,8 @@ class TestArchiver(TestCase):
         ])
 
         with open(join(self.path_to_test, 'toZip2.zip'), 'rb') as output, open(join(self.path_to_test, 'test_folder.zip'), 'rb') as input:
-            hashOutputZip = hashlib.sha256(output.read()).digest()
-            hashInputZip = hashlib.sha256(input.read()).digest()
+            self.assertTrue(output.read() == input.read())
 
-            self.assertEqual(hashOutputZip, hashInputZip)
 
         remove(join(self.path_to_test, 'toZip2.zip'))
 

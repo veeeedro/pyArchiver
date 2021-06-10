@@ -1,11 +1,11 @@
 import zipfile, os, pathlib
 
 
-def toZip(path_to_zip: str, objects: str):
+def toZip(path_to_zip: str, objects: list):
 
     with zipfile.ZipFile(path_to_zip, 'w') as ZipArchive:
         for object in objects:
-            if os.path.isdir:
+            if os.path.isdir(object):
                 folder = os.path.abspath(object)
                 for foldername, subfolders, filenames in os.walk(folder):
 
