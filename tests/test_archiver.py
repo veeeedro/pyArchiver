@@ -3,7 +3,7 @@ import shutil
 import filecmp
 from os import getcwd, remove
 from os.path import join
-from pyArchiver.pyArchiver import toZip, unzipping
+from pyArchiver.pyArchiver import to_zip, unzipping
 
 
 class TestArchiver(TestCase):
@@ -11,7 +11,7 @@ class TestArchiver(TestCase):
     path_to_test = join(getcwd(), 'tests', 'for_test')
 
     def test_toZip_1(self):
-        toZip(join(self.path_to_test, 'vbieTest.zip'), [
+        to_zip(join(self.path_to_test, 'vbieTest.zip'), [
             join(self.path_to_test, 'test_folder', 'vbie')
         ])
 
@@ -22,7 +22,7 @@ class TestArchiver(TestCase):
         remove(join(self.path_to_test, 'vbieTest.zip'))
 
     def test_toZip_2(self):
-        toZip(join(self.path_to_test, 'toZip2.zip'), [
+        to_zip(join(self.path_to_test, 'toZip2.zip'), [
             join(self.path_to_test, 'test_folder'),
             join(self.path_to_test, 'test_folder_2'),
             join(self.path_to_test, 'test_file_1.txt'),

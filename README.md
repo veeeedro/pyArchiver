@@ -2,10 +2,10 @@
 ## Example
 
 ```python
-from pyArchiver.pyArchiver import toZip, unzipping
+from pyArchiver.pyArchiver import to_zip, unzipping
 
 
-toZip('path where do you want to save archive.zip', [
+to_zip('path where do you want to save archive.zip', [
     'path to archive directory',
     'path to archive file',
 ])

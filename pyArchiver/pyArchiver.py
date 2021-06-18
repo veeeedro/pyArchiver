@@ -1,7 +1,7 @@
 import zipfile, os, pathlib
 
 
-def toZip(path_to_zip: str, objects: list):
+def to_zip(path_to_zip: str, objects: list):
 
     with zipfile.ZipFile(path_to_zip, 'w') as ZipArchive:
         for object in objects:
